@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_quote_expiry" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div class="col-12 mt-2" t-if="doc.validity_date and doc.state in ('draft', 'sent')">
+                <strong>Estado de vencimiento:</strong>
+                <div t-esc="doc.get_quote_expiry_report_message()"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
